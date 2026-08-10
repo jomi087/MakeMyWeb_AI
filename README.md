@@ -1,0 +1,1 @@
+A project focuses on AI usage

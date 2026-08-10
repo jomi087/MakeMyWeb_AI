@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vscode
+logs
+
+# Ignore all environment files
+.env*
+
+# But keep the example
+!.env.example
+
+temp
