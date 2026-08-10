@@ -1,7 +1,9 @@
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <div>
+      <h3 className="text-xl font-bold underline">Hello world!</h3>
+    </div>
+  );
+};
 
-export default App
+export default App;
