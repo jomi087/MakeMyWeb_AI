@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}
+/* 
+  This tells your editor: 
+
+  @/components
+        ↓
+  src/components
+
+  So both Vite and your editor understand the alias.
+*/
