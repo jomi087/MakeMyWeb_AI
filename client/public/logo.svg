@@ -1,0 +1,61 @@
+<svg width="120" height="120" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="116" y1="92" x2="396" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35D6D1"/>
+      <stop offset="1" stop-color="#5367E8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Abstract geometric WSB / AI mark -->
+  <path
+    d="M116 166L176 132L256 178L336 132L396 166V346L336 380L256 334L176 380L116 346V166Z"
+    fill="white"
+  />
+
+  <!-- Geometric inner cutout -->
+  <path
+    d="M151 184L176 170L256 216L336 170L361 184V328L336 342L256 296L176 342L151 328V184Z"
+    fill="#111827"
+  />
+
+  <!-- AI core -->
+  <path
+    d="M256 185L327 256L256 327L185 256L256 185Z"
+    fill="url(#logoGradient)"
+  />
+
+  <path
+    d="M256 215L297 256L256 297L215 256L256 215Z"
+    fill="#111827"
+  />
+
+  <!-- AI center -->
+  <path
+    d="M256 230L282 256L256 282L230 256L256 230Z"
+    fill="white"
+  />
+
+  <circle
+    cx="256"
+    cy="256"
+    r="7"
+    fill="#35D6D1"
+  />
+
+  <!-- Geometric side planes -->
+  <path
+    d="M116 166L176 200V342L116 346V166Z"
+    fill="#DDE2E9"
+  />
+
+  <path
+    d="M396 166L336 200V342L396 346V166Z"
+    fill="#DDE2E9"
+  />
+
+  <!-- AI connection nodes -->
+  <circle cx="176" cy="200" r="7" fill="url(#logoGradient)"/>
+  <circle cx="336" cy="200" r="7" fill="url(#logoGradient)"/>
+  <circle cx="176" cy="342" r="7" fill="url(#logoGradient)"/>
+  <circle cx="336" cy="342" r="7" fill="url(#logoGradient)"/>
+</svg>
