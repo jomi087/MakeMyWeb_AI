@@ -1,8 +1,5 @@
-
 const PreviewPage = () => {
-  return (
-    <div>PreviewPage</div>
-  )
-}
+  return <div>PreviewPage</div>;
+};
 
-export default PreviewPage
+export default PreviewPage;

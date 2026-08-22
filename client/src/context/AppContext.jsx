@@ -5,7 +5,7 @@ export const AppContext = createContext(undefined);
 
 export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loadingUser, setLoadingUser] = useState(false);
+  const [loadingUser, _setLoadingUser] = useState(false);
 
   //Auth Actions
   const checkSession = async () => {

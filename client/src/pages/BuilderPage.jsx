@@ -1,8 +1,5 @@
-
 const BuilderPage = () => {
-  return (
-    <div>BuilderPage</div>
-  )
-}
+  return <div>BuilderPage</div>;
+};
 
-export default BuilderPage
+export default BuilderPage;
