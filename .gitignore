@@ -11,10 +11,9 @@ logs
 
 temp
 errors
-constants
 api
 utils
 
 /client/src/constants/errorType.constants.js
 /client/src/constants/httpStatus.constants.js
-/client/src/constants/messages.constants.js
+/client/src/constants/apiRoutes.constants.js

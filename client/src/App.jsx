@@ -5,6 +5,7 @@ import PageError from './components/common/PageError.jsx';
 import HomePage from './pages/HomePage.jsx';
 import BuilderPage from './pages/BuilderPage.jsx';
 import PreviewPage from './pages/PreviewPage.jsx';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,12 @@ const router = createBrowserRouter([
   { path: '*', element: <p>Page Not Found</p> },
 ]);
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Toaster position="top-right" />
+      <RouterProvider router={router} />;
+    </>
+  );
 };
 
 export default App;

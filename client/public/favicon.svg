@@ -1,61 +1,69 @@
-<svg width="80" height="80" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
   <defs>
-    <linearGradient id="logoGradient" x1="116" y1="92" x2="396" y2="420" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#35D6D1"/>
-      <stop offset="1" stop-color="#5367E8"/>
+    <linearGradient id="logoGradient" x1="150" y1="430" x2="900" y2="650" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#12A8E8"/>
+      <stop offset="0.5" stop-color="#0875D1"/>
+      <stop offset="1" stop-color="#252A83"/>
     </linearGradient>
   </defs>
 
-  <!-- Abstract geometric WSB / AI mark -->
+  <!-- Stylized W + website/building -->
   <path
-    d="M116 166L176 132L256 178L336 132L396 166V346L336 380L256 334L176 380L116 346V166Z"
-    fill="white"
-  />
-
-  <!-- Geometric inner cutout -->
-  <path
-    d="M151 184L176 170L256 216L336 170L361 184V328L336 342L256 296L176 342L151 328V184Z"
-    fill="#111827"
-  />
-
-  <!-- AI core -->
-  <path
-    d="M256 185L327 256L256 327L185 256L256 185Z"
     fill="url(#logoGradient)"
+    d="
+      M150 370
+      L292 370
+      L405 570
+      L510 395
+      L635 570
+      L682 500
+      L682 285
+      L900 185
+      L900 620
+      L820 700
+      L820 750
+      Q820 805 765 805
+      L700 805
+      Q650 805 625 760
+      L510 570
+      L415 760
+      Q390 805 345 805
+      L315 805
+      Q270 805 245 760
+      Z
+    "
   />
 
+  <!-- Website page cut-out -->
   <path
-    d="M256 215L297 256L256 297L215 256L256 215Z"
-    fill="#111827"
-  />
-
-  <!-- AI center -->
-  <path
-    d="M256 230L282 256L256 282L230 256L256 230Z"
     fill="white"
+    d="
+      M682 285
+      L875 205
+      L875 650
+      L815 710
+      L760 710
+      Q730 710 720 680
+      L682 610
+      Z
+    "
   />
 
-  <circle
-    cx="256"
-    cy="256"
-    r="7"
-    fill="#35D6D1"
-  />
-
-  <!-- Geometric side planes -->
+  <!-- Browser/header section -->
   <path
-    d="M116 166L176 200V342L116 346V166Z"
-    fill="#DDE2E9"
+    fill="url(#logoGradient)"
+    d="M682 285 L875 205 L875 300 L682 375 Z"
   />
 
-  <path
-    d="M396 166L336 200V342L396 346V166Z"
-    fill="#DDE2E9"
-  />
+  <!-- Content blocks -->
+  <path fill="url(#logoGradient)" d="M682 405 L850 340 L850 420 L682 485 Z"/>
+  <path fill="url(#logoGradient)" d="M682 515 L775 480 L775 575 L682 610 Z"/>
+  <path fill="url(#logoGradient)" d="M800 468 L850 449 L850 475 L800 494 Z"/>
+  <path fill="url(#logoGradient)" d="M800 505 L850 486 L850 512 L800 531 Z"/>
+  <path fill="url(#logoGradient)" d="M800 542 L850 523 L850 549 L800 568 Z"/>
 
-  <!-- AI connection nodes -->
-  <circle cx="176" cy="200" r="7" fill="url(#logoGradient)"/>
-  <circle cx="336" cy="200" r="7" fill="url(#logoGradient)"/>
-  <circle cx="176" cy="342" r="7" fill="url(#logoGradient)"/>
-  <circle cx="336" cy="342" r="7" fill="url(#logoGradient)"/>
+  <!-- Browser dots -->
+  <circle cx="710" cy="318" r="10" fill="white"/>
+  <circle cx="742" cy="305" r="10" fill="white"/>
+  <circle cx="774" cy="292" r="10" fill="white"/>
 </svg>
