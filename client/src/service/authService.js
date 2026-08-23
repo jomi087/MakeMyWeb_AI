@@ -15,7 +15,7 @@ class AuthService {
   async login(email, password) {
     const res = await api.post(auth.login, {
       email,
-      password
+      password,
     });
     return res.data.user;
   }
@@ -24,7 +24,7 @@ class AuthService {
     const res = await api.post(auth.register, {
       name,
       email,
-      password
+      password,
     });
     return res.data.user;
   }

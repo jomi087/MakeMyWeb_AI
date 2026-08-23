@@ -29,7 +29,7 @@ const LoginLeft = () => {
           real-time. React with clean JSX, verified layout code exports.
         </p>
         <p className="text-zinc-300 text-sm mt-12">
-          Copyright {new Date().getFullYear()}{" "}
+          Copyright {new Date().getFullYear()}{' '}
           <span className="font-bold">{BRAND_NAME}</span>
         </p>
       </div>

@@ -1,9 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import authService from '../service/authService.js';
 import toast from 'react-hot-toast';
-import {
-  ERROR_MESSAGES,
-} from '@/constants/messages.constants.js';
+import { ERROR_MESSAGES } from '@/constants/messages.constants.js';
 
 export const AppContext = createContext(undefined);
 
@@ -17,7 +15,7 @@ export const AppContextProvider = ({ children }) => {
       const user = await authService.check();
       setUser(user);
     } catch (error) {
-      console.log("checkSession",error);
+      console.log('checkSession', error);
       const errorMessage = error?.response?.data?.error;
       toast.error(errorMessage || ERROR_MESSAGES.SOMETHING_WENT_WRONG);
       setUser(null);
@@ -31,8 +29,8 @@ export const AppContextProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-      const user = await authService.login(email, password);
-      setUser(user);
+    const user = await authService.login(email, password);
+    setUser(user);
   };
 
   const register = async (name, email, password) => {
