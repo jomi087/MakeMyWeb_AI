@@ -1,3 +1,4 @@
+import PromptInput from '@/components/PromptInput.jsx';
 import { useAppContext } from '@/hook/useAppContext.js';
 import { Button } from '@base-ui/react/button';
 
@@ -50,7 +51,13 @@ const HomePage = () => {
 
           {/* Promt input with glassmosphic variant */}
           <div className="w-full mt-6">
-            
+            <PromptInput
+              onSubmit={() => {console.log("logic need to be added")}}
+              loading={false} // temp value
+              placeholder="Create a portfolio website..."
+              variant="glass"
+              autoFocus
+            />
           </div>
         </div>
       </div>
