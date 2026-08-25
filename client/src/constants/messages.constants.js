@@ -8,6 +8,7 @@ export const ERROR_MESSAGES = {
   //Auth
   LOGIN_FAILED: 'Login failed',
   REGISTRATION_FAILED: 'Registration failed',
+  LOGOUT_FAILED: 'Logout failed',
 
   SOMETHING_WENT_WRONG: 'Something went wrong',
 };
