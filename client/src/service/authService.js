@@ -4,6 +4,7 @@ const auth = {
   check: '/api/auth/me',
   login: '/api/auth/login',
   register: '/api/auth/register',
+  logout: '/api/auth/logout',
 };
 
 class AuthService {
@@ -27,6 +28,10 @@ class AuthService {
       password,
     });
     return res.data.user;
+  }
+
+  async logout() {
+    await api.post(auth.logout);
   }
 }
 

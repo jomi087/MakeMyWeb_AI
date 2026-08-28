@@ -6,9 +6,9 @@ const Loading = () => {
     <div
       role="status"
       aria-label="Loading"
-      className="h-screen flex items-center justify-center bg-white"
+      className="h-screen flex items-center justify-center bg-[url('/bg-img.png')] bg-cover bg-center bg-no-repeat"
     >
-      <Loader2Icon size={26} className="animate-spin text-zinc-950" />
+      <Loader2Icon size={46} className="animate-spin text-white" />
     </div>
   );
 };
