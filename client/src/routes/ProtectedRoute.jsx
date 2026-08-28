@@ -1,6 +1,6 @@
-import Loading from "@/components/common/Loading.jsx";
-import { useAppContext } from "@/hook/useAppContext.js";
-import { Navigate, Outlet } from "react-router-dom";
+import Loading from '@/components/common/Loading.jsx';
+import { useAppContext } from '@/hook/useAppContext.js';
+import { Navigate, Outlet } from 'react-router-dom';
 
 export const ProtectedRoute = () => {
   const { user, loadingUser } = useAppContext();

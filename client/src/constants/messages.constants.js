@@ -21,6 +21,5 @@ export const ERROR_MESSAGES = {
   PROJECT_GENERATATION_FAILED: 'Failed to generate project',
   PROJECT_DELETE_FAILED: 'Failed to delete project',
 
-
   SOMETHING_WENT_WRONG: 'Something went wrong',
 };

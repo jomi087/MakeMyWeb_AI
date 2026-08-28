@@ -14,6 +14,14 @@ errors
 api
 utils
 
+# constants
 /client/src/constants/errorType.constants.js
 /client/src/constants/httpStatus.constants.js
 /client/src/constants/apiRoutes.constants.js
+
+# context & hook
+/client/src/context/AuthContext.jsx
+client/src/hook/useAuthContext.js
+
+/client/src/context/ProjectContext.jsx
+client/src/hook/useProjectContext.js

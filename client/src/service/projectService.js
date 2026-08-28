@@ -4,7 +4,7 @@ const project = {
   list: '/api/projects',
   get: (id) => `/api/projects/${id}`,
   create: '/api/projects',
-  delete: (id) => `/api/projects/${id}`
+  delete: (id) => `/api/projects/${id}`,
 };
 
 class ProjectService {
@@ -16,20 +16,19 @@ class ProjectService {
 
   // getting perticular project
   async getById(id) {
-    const res = await api.get(project.get(id))
+    const res = await api.get(project.get(id));
     return res.data;
   }
 
   //generate project
   async generate(prompt) {
-    const res = await api.post(project.create, { prompt })
-    return res.data
+    const res = await api.post(project.create, { prompt });
+    return res.data;
   }
 
   async remove(id) {
-    await api.delete(project.delete(id))
+    await api.delete(project.delete(id));
   }
 }
 
 export default new ProjectService();
-

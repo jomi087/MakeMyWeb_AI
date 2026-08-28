@@ -15,15 +15,17 @@ export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
   //Auth
   const [user, setUser] = useState(null);
-  const [loadingUser, setLoadingUser] = useState(false);
+  const [loadingUser, setLoadingUser] = useState(true);
 
   //project
   const [projects, setProjects] = useState([]);
   const [loadingProjects, setLoadingProjects] = useState(true);
   const [activeProject, setActiveProject] = useState(null);
   const [loadingActiveProject, setLoadingActiveProject] = useState(true);
+
   const [chatLoading, setChatLoading] = useState(false);
   const [generatingProject, setGeneratingProject] = useState(false);
+
   const [activeFile, setActiveFile] = useState('/App.js');
   const [showCode, setShowCode] = useState(false);
 

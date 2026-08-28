@@ -52,7 +52,9 @@ const HomePage = () => {
           {/* Promt input with glassmosphic variant */}
           <div className="w-full mt-6">
             <PromptInput
-              onSubmit={() => {console.log("logic need to be added")}}
+              onSubmit={() => {
+                console.log('logic need to be added');
+              }}
               loading={false} // temp value
               placeholder="Create a portfolio website..."
               variant="glass"
