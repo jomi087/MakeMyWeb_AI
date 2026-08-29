@@ -29,7 +29,7 @@ export const AppContextProvider = ({ children }) => {
   const [activeFile, setActiveFile] = useState('/App.js');
   const [showCode, setShowCode] = useState(false);
 
-  console.log('activeFile', activeFile);
+  // console.log('activeFile', activeFile);
   //Auth Actions
   const checkSession = async () => {
     try {
@@ -75,7 +75,10 @@ export const AppContextProvider = ({ children }) => {
   };
 
   const loadProjects = async () => {
-    if (!user) return;
+    if (!user) {
+      setLoadingProjects(false);
+      return;
+    }
 
     try {
       const data = await projectService.list();
@@ -135,9 +138,11 @@ export const AppContextProvider = ({ children }) => {
       activeProject?.status === 'pending' ||
       activeProject?.status === 'revising';
 
+    // console.log(activeProject.status)
     if (isOngoing) {
       setChatLoading(true);
       const interval = setInterval(() => {
+        console.log('hi i am polling loadProject from AppContext');
         loadProject(activeProject._id, true);
       }, 2000);
 
@@ -180,6 +185,37 @@ export const AppContextProvider = ({ children }) => {
     },
     [user]
   );
+
+  const handleChat = useCallback(
+    async (prompt) => {
+      if (!activeProject || !user) return;
+
+      setChatLoading(true);
+      try {
+        const data = await projectService.projectChat(
+          activeProject._id,
+          prompt
+        );
+        setActiveProject(data);
+
+        if (data.errors && data.errors.length > 0) {
+          toast.error(ERROR_MESSAGES.REVISION_PATCH_FAILED(data.errors.length));
+        } else {
+          toast.success(
+            SUCCESS_MESSAGES.PROJECT_REVISION_SUCCESS(data.version)
+          );
+        }
+      } catch (error) {
+        console.log('Revision request failed', error);
+        const errorMessage = error?.response?.data?.error;
+        toast.error(errorMessage || ERROR_MESSAGES.PROJECT_REVISION_FAILED);
+      } finally {
+        setChatLoading(false);
+      }
+    },
+    [activeProject, user]
+  );
+
   const value = {
     user,
     loadingUser,
@@ -200,6 +236,7 @@ export const AppContextProvider = ({ children }) => {
     loadProject,
     handleGenerate,
     handleDelete,
+    handleChat,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

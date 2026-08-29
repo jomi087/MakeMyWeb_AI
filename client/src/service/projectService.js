@@ -5,6 +5,7 @@ const project = {
   get: (id) => `/api/projects/${id}`,
   create: '/api/projects',
   delete: (id) => `/api/projects/${id}`,
+  chat: (id) => `/api/projects/${id}/chat`,
 };
 
 class ProjectService {
@@ -28,6 +29,11 @@ class ProjectService {
 
   async remove(id) {
     await api.delete(project.delete(id));
+  }
+
+  async projectChat(activeProjectId, prompt) {
+    const res = await api.post(project.chat(activeProjectId), { prompt });
+    return res.data;
   }
 }
 
