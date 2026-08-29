@@ -1,7 +1,7 @@
 import { homeTags } from '@/assets/assets.js';
 import PromptInput from '@/components/PromptInput.jsx';
+import { Button } from '@/components/ui/button.jsx';
 import { useAppContext } from '@/hook/useAppContext.js';
-import { Button } from '@base-ui/react/button';
 import { ArrowRightIcon, ClockIcon, Trash2Icon } from 'lucide-react';
 import moment from 'moment/moment.js';
 import { useEffect } from 'react';
@@ -40,12 +40,12 @@ const HomePage = () => {
         </div>
         <div className="flex items-center gap-4 text-sm font-medium text-zinc-300">
           <span>{user?.name}</span>
-          <Button
+          <button
             onClick={logout}
             className="py-1.5 px-3 border border-white/20 text-white hover:bg-white/10 text-xs rounded-md cursor-pointer bg-transparent"
           >
             Sign out
-          </Button>
+          </button>
         </div>
       </nav>
 
@@ -134,7 +134,8 @@ const HomePage = () => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Button
+                      <button
+                        
                         onClick={(e) => {
                           e.stopPropagation();
                           handleDelete(p._id);
@@ -142,7 +143,7 @@ const HomePage = () => {
                         className="p-1.5 rounded-md text-zinc-200 hover:text-red-400 hover:bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"
                       >
                         <Trash2Icon size={14} />
-                      </Button>
+                      </button>
                       <ArrowRightIcon
                         size={14}
                         className="text-zinc-200 group-hover:text-white"
