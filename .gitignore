@@ -25,3 +25,8 @@ client/src/hook/useAuthContext.js
 
 /client/src/context/ProjectContext.jsx
 client/src/hook/useProjectContext.js
+
+#component 
+
+#loading
+client/src/components/builder/BuilderLoading.jsx

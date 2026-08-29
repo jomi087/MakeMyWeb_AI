@@ -135,7 +135,6 @@ const HomePage = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <button
-                        
                         onClick={(e) => {
                           e.stopPropagation();
                           handleDelete(p._id);

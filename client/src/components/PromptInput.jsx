@@ -100,7 +100,6 @@ const PromptInput = ({
         className={`flex-1 bg-transparent border-none outline-none resize-none text-zinc-900 placeholder:text-zinc-400 ${large ? 'text-base' : 'text-sm'}`}
       />
       <button
-        
         className="flex items-center justify-center p-1.5 text-white rounded-full bg-red-600 hover:bg-red-700 disabled:opacity-40 cursor-pointer"
         type="submit"
         disabled={!value.trim() || loading}
