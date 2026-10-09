@@ -7,6 +7,7 @@ import PreviewPage from '@/pages/PreviewPage.jsx';
 import { createBrowserRouter } from 'react-router-dom';
 import { PublicRoute } from './PublicRoute.jsx';
 import { ProtectedRoute } from './ProtectedRoute.jsx';
+import PublishPage from '@/pages/PublishPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             element: <PreviewPage />,
           },
         ],
+      },
+      {
+        path: '/publish/:id',
+        element: <PublishPage />,
       },
     ],
   },

@@ -5,6 +5,9 @@ const project = {
   get: (id) => `/api/projects/${id}`,
   create: '/api/projects',
   delete: (id) => `/api/projects/${id}`,
+  chat: (id) => `/api/projects/${id}/chat`,
+  updateFiles: (id) => `/api/projects/${id}/files`,
+  publish: (id) => `/api/projects/${id}/publish`,
 };
 
 class ProjectService {
@@ -28,6 +31,19 @@ class ProjectService {
 
   async remove(id) {
     await api.delete(project.delete(id));
+  }
+
+  async projectChat(activeProjectId, prompt) {
+    const res = await api.post(project.chat(activeProjectId), { prompt });
+    return res.data;
+  }
+
+  async updateProjectFiles(files, id) {
+    await api.put(project.updateFiles(id), { files });
+  }
+
+  async publishProject(id) {
+    await api.post(project.publish(id));
   }
 }
 

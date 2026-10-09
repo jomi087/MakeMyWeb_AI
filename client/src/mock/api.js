@@ -187,12 +187,12 @@ export default function Footer() {
 } `,
       '/styles.css': `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-body {
-  font - family: 'Inter', sans - serif;
-  margin: 0;
-  padding: 0;
-  box - sizing: border - box;
-} `,
+      body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }`,
     },
   },
   {
@@ -239,7 +239,12 @@ export default function App() {
   );
 } `,
       '/styles.css': `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-body { font - family: 'Inter', sans - serif; background - color: #09090b; color: #fafafa; } `,
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #09090b;
+        color: #fafafa;
+      }`,
     },
   },
 ];
@@ -356,7 +361,11 @@ api.defaults.adapter = async (config) => {
         '/components/Header.js': `import React from 'react'; \n\nexport default function Header() { \n  return (\n < header className = 'px-6 py-4 border-b border-zinc-100 flex justify-between items-center max-w-7xl mx-auto' >\n < span className = 'font-bold text-xl tracking-tight text-zinc-900' > ${projName}</span >\n < button className = 'px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg shadow-xs transition' > Get Started</button >\n    </header >\n  ); \n } `,
         '/components/Hero.js': `import React from 'react'; \n\nexport default function Hero() { \n  return (\n < section className = 'py-20 max-w-7xl mx-auto px-6 text-center' >\n < h1 className = 'text-5xl font-bold tracking-tight text-zinc-950 mb-6' > ${prompt}</h1 >\n < p className = 'text-zinc-600 text-lg max-w-2xl mx-auto mb-8' > Welcome to your new custom application generated with AI.</p >\n < button className = 'px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-xl text-base shadow-md transition' > Explore Features</button >\n    </section >\n  ); \n } `,
         '/components/Footer.js': `import React from 'react'; \n\nexport default function Footer() { \n  return (\n < footer className = 'py-8 max-w-7xl mx-auto px-6 text-center text-sm text-zinc-400 border-t border-zinc-100' >\n      © ${new Date().getFullYear()} ${projName}. All rights reserved.\n    </footer >\n  ); \n } `,
-        '/styles.css': `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap'); \nbody { font - family: 'Inter', sans - serif; } `,
+        '/styles.css': `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        body {
+          font-family: 'Inter', sans-serif;
+        }`,
       },
     };
 
