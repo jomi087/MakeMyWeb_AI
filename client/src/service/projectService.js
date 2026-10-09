@@ -51,7 +51,6 @@ class ProjectService {
     const res = await api.get(project.getPublic(id));
     return res.data;
   }
-
 }
 
 export default new ProjectService();
