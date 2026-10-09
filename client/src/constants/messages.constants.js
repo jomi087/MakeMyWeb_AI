@@ -8,6 +8,9 @@ export const SUCCESS_MESSAGES = {
   PROJECT_GENERATION_STARTED: 'AI Agent is planning structure...',
   PROJECT_DELETE_SUCCESS: 'Project deleted successfully',
   PROJECT_REVISION_SUCCESS: (version) => `Updated to version ${version}`,
+
+  WEBSITE_PUBLISHED: 'Website published successfully',
+
 };
 
 export const ERROR_MESSAGES = {
@@ -23,6 +26,9 @@ export const ERROR_MESSAGES = {
   PROJECT_DELETE_FAILED: 'Failed to delete project',
   PROJECT_REVISION_FAILED: 'Revision request failed',
   REVISION_PATCH_FAILED: (count) => `${count} revision patch(es) failed`,
+
+  WEBSITE_PUBLISH_FAILED: 'Failed to publish website. Please try again.',
+
 
   SOMETHING_WENT_WRONG: 'Something went wrong',
 };

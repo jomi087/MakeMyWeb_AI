@@ -1,9 +1,20 @@
+import AgentProgressDashboard from '@/components/builder/AgentProgressDashboard.jsx';
 import BuilderHeader from '@/components/builder/BuilderHeader.jsx';
 import ChatPanel from '@/components/builder/ChatPanel.jsx';
+import FileExplorer from '@/components/builder/FileExplorer.jsx';
+import PreviewPanel from '@/components/builder/PreviewPanel.jsx';
+import PublishModal from '@/components/builder/PublishModal.jsx';
 import Loading from '@/components/common/Loading.jsx';
+import {
+  ERROR_MESSAGES,
+  SUCCESS_MESSAGES,
+} from '@/constants/messages.constants.js';
 import { useAppContext } from '@/hook/useAppContext.js';
+import projectService from '@/service/projectService.js';
+import { exportProjectZip } from '@/utils/exportProject.js';
 import { FolderTreeIcon, MessageSquareIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const BuilderPage = () => {
@@ -33,23 +44,7 @@ const BuilderPage = () => {
     loadProject(id);
   }, [id, loadProject]);
 
-  //#do we need this
-  // useEffect(() => {
-  //   if (!id || !activeProject) return;
-  //   console.log(activeProject.status);
 
-  //   if (
-  //     activeProject.status === 'pending' ||
-  //     activeProject.status === 'generating'
-  //   ) {
-  //     const interval = setInterval(() => {
-  //       console.log('hi i am polling loadProject from builder Page');
-  //       loadProject(id, true);
-  //     }, 1500);
-
-  //     return () => clearInterval(interval);
-  //   }
-  // }, [id, activeProject, loadProject]);
 
   const handleOpenPreview = () => {
     if (!id) return;
@@ -57,8 +52,26 @@ const BuilderPage = () => {
     window.open(`/preview/${id}`, '_blank');
   };
 
-  const handlePublish = () => {};
-  const handleDownFload = () => {};
+  const handlePublish = async () => {
+    if (!id) return;
+    setPublishing(true);
+    try {
+      await projectService.publishProject(id);
+      const url = `${window.location.origin}/publish/${id}`;
+      setPublishUrl(url);
+      toast.success(SUCCESS_MESSAGES.WEBSITE_PUBLISHED);
+    } catch (error) {
+      console.log('pusblish failed', error);
+      const errMsg = error?.response?.data?.error;
+      toast.error(errMsg || ERROR_MESSAGES.WEBSITE_PUBLISH_FAILED);
+    } finally {
+      setPublishing(false);
+    }
+  };
+  const handleDownFload = () => {
+    if (!activeProject) return;
+    exportProjectZip(activeProject);
+  };
 
   if (loadingActiveProject || !activeProject) {
     return <Loading />;
@@ -121,11 +134,40 @@ const BuilderPage = () => {
                 loading={chatLoading}
               />
             ) : (
-              <div>file Explorer</div>
+              <FileExplorer
+                files={activeProject.files}
+                activeFile={activeFile}
+                onFileSelect={(path) => {
+                  setActiveFile(path);
+                  setShowCode(true);
+                }}
+              />
             )}
           </div>
         </div>
+
+        {/* Preview / Code Area */}
+        <div className="flex-1 overflow-hidden">
+          {activeProject.status === 'pending' ||
+          activeProject.status === 'generating' ||
+          activeProject.status === 'failed' ? (
+            <AgentProgressDashboard project={activeProject} />
+          ) : (
+            // <p>Preview Pannel</p>
+            <PreviewPanel
+              project={activeProject}
+              activeFile={activeFile}
+              showCode={showCode}
+            />
+          )}
+        </div>
       </div>
+      {publishUrl && (
+        <PublishModal
+          publishUrl={publishUrl}
+          onClose={() => setPublishUrl(null)}
+        />
+      )}
     </div>
   );
 };

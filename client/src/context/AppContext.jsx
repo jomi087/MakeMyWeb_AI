@@ -1,4 +1,10 @@
-import { createContext, useCallback, useEffect, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useState,
+  useMemo,
+} from 'react';
 import authService from '../service/authService.js';
 import projectService from '@/service/projectService.js';
 
@@ -8,6 +14,7 @@ import {
   SUCCESS_MESSAGES,
 } from '@/constants/messages.constants.js';
 import { useNavigate } from 'react-router-dom';
+import debounce from 'lodash.debounce';
 
 export const AppContext = createContext(undefined);
 
@@ -20,6 +27,7 @@ export const AppContextProvider = ({ children }) => {
   //project
   const [projects, setProjects] = useState([]);
   const [loadingProjects, setLoadingProjects] = useState(true);
+
   const [activeProject, setActiveProject] = useState(null);
   const [loadingActiveProject, setLoadingActiveProject] = useState(true);
 
@@ -100,6 +108,7 @@ export const AppContextProvider = ({ children }) => {
 
       try {
         const data = await projectService.getById(id);
+        console.log('loaded project data', data);
         setActiveProject(data);
 
         //default file selection
@@ -158,6 +167,7 @@ export const AppContextProvider = ({ children }) => {
       setGeneratingProject(true);
       try {
         const data = await projectService.generate(prompt);
+        console.log('generated project data', data);
         toast.success(SUCCESS_MESSAGES.PROJECT_GENERATION_STARTED);
         navigate(`/builder/${data._id}`);
       } catch (error) {
@@ -216,6 +226,44 @@ export const AppContextProvider = ({ children }) => {
     [activeProject, user]
   );
 
+  // Purpose of useMemo:
+  // Lodash's debounce method is not aware of React's render cycle.
+  // useMemo preserves the same debounced function instance across re-renders,
+  // preventing a new debounce timer from being created on every render.
+  // The empty dependency array means it is created once per component mount.
+  //
+  // Alternative:
+  // Use useDebouncedCallback from the "use-debounce" package.
+  // It is designed for React and manages the debounced callback across re-renders,
+  // so you don't need to wrap Lodash's debounce method in useMemo.
+  const debouncedSave = useMemo(
+    () =>
+      debounce(async (files, id) => {
+        try {
+          await projectService.updateProjectFiles(files, id);
+        } catch (err) {
+          console.error('Failed to auto-save files:', err);
+          toast.error('Failed to save code modifications');
+        }
+      }, 1000),
+    []
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedSave.flush();
+    };
+  }, [debouncedSave]);
+
+  //auto save logic
+  const updateProjectFiles = useCallback(
+    async (files) => {
+      if (!activeProject || !user) return;
+      debouncedSave(files, activeProject._id);
+    },
+    [activeProject, user, debouncedSave]
+  );
+
   const value = {
     user,
     loadingUser,
@@ -229,6 +277,7 @@ export const AppContextProvider = ({ children }) => {
     chatLoading,
     generatingProject,
     activeFile,
+    updateProjectFiles,
     showCode,
     setActiveFile,
     setShowCode,
