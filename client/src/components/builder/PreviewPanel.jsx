@@ -115,25 +115,25 @@ const PreviewPanel = ({ project, activeFile, showCode }) => {
             'sp-preview': 'sp-preview',
           },
           logLevel: 0,
-          theme: {
-            colors: {
-              surface1: '#ffffff',
-              surface2: '#f4f4f5',
-              surface3: '#e4e4e7',
-              clickable: '#71717a',
-              base: '#09090b',
-              disabled: '#a1a1aa',
-              hover: '#18181b',
-              accent: '#18181b',
-              error: '#ef4444',
-              errorSurface: '#fef2f2',
-            },
-            font: {
-              body: "'Urbanist', system-ui, -apple-system, sans-serif",
-              mono: "'Geist Mono', ui-monospace, monospace",
-              size: '13px',
-              lineHeight: '1.6',
-            },
+        }}
+        theme={{
+          colors: {
+            surface1: '#ffffff',
+            surface2: '#f4f4f5',
+            surface3: '#e4e4e7',
+            clickable: '#71717a',
+            base: '#09090b',
+            disabled: '#a1a1aa',
+            hover: '#18181b',
+            accent: '#18181b',
+            error: '#ef4444',
+            errorSurface: '#fef2f2',
+          },
+          font: {
+            body: "'Urbanist', system-ui, -apple-system, sans-serif",
+            mono: "'Geist Mono', ui-monospace, monospace",
+            size: '12px',
+            lineHeight: '1.6',
           },
         }}
       >

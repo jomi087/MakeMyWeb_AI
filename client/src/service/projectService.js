@@ -3,6 +3,7 @@ import api from '@/mock/api.js';
 const project = {
   list: '/api/projects',
   get: (id) => `/api/projects/${id}`,
+  getPublic: (id) => `/api/projects/public/${id}`,
   create: '/api/projects',
   delete: (id) => `/api/projects/${id}`,
   chat: (id) => `/api/projects/${id}/chat`,
@@ -44,6 +45,11 @@ class ProjectService {
 
   async publishProject(id) {
     await api.post(project.publish(id));
+  }
+
+  async getPublicProject(id) {
+    const res = await api.get(project.getPublic(id));
+    return res.data;
   }
 }
 
