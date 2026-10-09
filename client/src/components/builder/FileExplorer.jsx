@@ -1,9 +1,10 @@
 import { FileCodeIcon, FileTextIcon, FolderOpenIcon } from 'lucide-react';
 import React, { useMemo } from 'react';
 
-function buildTree(paths) { //eg: [ /App.js, /component/header.js,  /component/footer.js ]
+function buildTree(paths) {
+  //eg: [ /App.js, /component/header.js,  /component/footer.js ]
   const root = [];
-  
+
   for (const filePath of paths.sort()) {
     const parts = filePath.split('/').filter(Boolean);
     let current = root;

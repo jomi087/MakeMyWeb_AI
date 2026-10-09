@@ -1,6 +1,12 @@
 import { useAppContext } from '@/hook/useAppContext.js';
 import { detectDependencies } from '@/utils/sandpackUtils.js';
-import { SandpackCodeEditor, SandpackLayout, SandpackPreview, SandpackProvider, useSandpack } from '@codesandbox/sandpack-react';
+import {
+  SandpackCodeEditor,
+  SandpackLayout,
+  SandpackPreview,
+  SandpackProvider,
+  useSandpack,
+} from '@codesandbox/sandpack-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import SandPackErrorMonitor from './SandPackErrorMonitor.jsx';
 

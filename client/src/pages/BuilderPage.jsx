@@ -44,8 +44,6 @@ const BuilderPage = () => {
     loadProject(id);
   }, [id, loadProject]);
 
-
-
   const handleOpenPreview = () => {
     if (!id) return;
 

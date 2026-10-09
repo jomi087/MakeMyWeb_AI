@@ -10,7 +10,6 @@ export const SUCCESS_MESSAGES = {
   PROJECT_REVISION_SUCCESS: (version) => `Updated to version ${version}`,
 
   WEBSITE_PUBLISHED: 'Website published successfully',
-
 };
 
 export const ERROR_MESSAGES = {
@@ -28,7 +27,6 @@ export const ERROR_MESSAGES = {
   REVISION_PATCH_FAILED: (count) => `${count} revision patch(es) failed`,
 
   WEBSITE_PUBLISH_FAILED: 'Failed to publish website. Please try again.',
-
 
   SOMETHING_WENT_WRONG: 'Something went wrong',
 };
