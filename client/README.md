@@ -52,22 +52,22 @@ Users can work with React project files, preview changes in real time, submit pr
 <details>
 <summary><strong>Technology Stack</strong></summary>
 
-| Technology | Purpose |
-|---|---|
-| React 19 | User interface |
-| Vite 8 | Development server and build tooling |
-| Tailwind CSS 4 | Styling |
-| React Router DOM 7 | Client-side routing |
-| Sandpack | Code editing and live preview |
-| Axios | HTTP client |
-| Zod | Form and data validation |
-| JSZip | ZIP file generation |
-| FileSaver | Browser file downloads |
-| Lodash Debounce | Debounced code saving |
-| React Hot Toast | Notifications |
-| Lucide React | Icons |
-| Oxlint | Linting |
-| Prettier | Code formatting |
+| Technology         | Purpose                              |
+| ------------------ | ------------------------------------ |
+| React 19           | User interface                       |
+| Vite 8             | Development server and build tooling |
+| Tailwind CSS 4     | Styling                              |
+| React Router DOM 7 | Client-side routing                  |
+| Sandpack           | Code editing and live preview        |
+| Axios              | HTTP client                          |
+| Zod                | Form and data validation             |
+| JSZip              | ZIP file generation                  |
+| FileSaver          | Browser file downloads               |
+| Lodash Debounce    | Debounced code saving                |
+| React Hot Toast    | Notifications                        |
+| Lucide React       | Icons                                |
+| Oxlint             | Linting                              |
+| Prettier           | Code formatting                      |
 
 </details>
 
@@ -189,19 +189,19 @@ npm run preview
 
 Run these commands from the `client` directory.
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start the development server |
-| `npm run build` | Generate the production build |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run Oxlint |
-| `npm run lint:fix` | Automatically fix supported lint issues |
-| `npm run format` | Format files using Prettier |
-| `npm run format:check` | Check formatting without modifying files |
-| `npm run docker:dev:build` | Build the development Docker image |
-| `npm run docker:dev:run` | Run the development container |
-| `npm run docker:prod:build` | Build the production Docker image |
-| `npm run docker:prod:run` | Run the production container |
+| Command                     | Description                              |
+| --------------------------- | ---------------------------------------- |
+| `npm run dev`               | Start the development server             |
+| `npm run build`             | Generate the production build            |
+| `npm run preview`           | Preview the production build locally     |
+| `npm run lint`              | Run Oxlint                               |
+| `npm run lint:fix`          | Automatically fix supported lint issues  |
+| `npm run format`            | Format files using Prettier              |
+| `npm run format:check`      | Check formatting without modifying files |
+| `npm run docker:dev:build`  | Build the development Docker image       |
+| `npm run docker:dev:run`    | Run the development container            |
+| `npm run docker:prod:build` | Build the production Docker image        |
+| `npm run docker:prod:run`   | Run the production container             |
 
 </details>
 
@@ -294,15 +294,15 @@ docker run -d --name myw-client-container -p 3001:80 myw-client
 
 Command options:
 
-| Option | Description |
-|---|---|
-| `--rm` | Remove the container automatically after it stops |
-| `-it` | Enable interactive terminal use |
-| `-d` | Run the container in the background |
-| `--name` | Assign a container name |
-| `-p host:container` | Map a host port to a container port |
-| `3000:5173` | Map local port 3000 to container port 5173 |
-| `3001:80` | Map local port 3001 to container port 80 |
+| Option              | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| `--rm`              | Remove the container automatically after it stops |
+| `-it`               | Enable interactive terminal use                   |
+| `-d`                | Run the container in the background               |
+| `--name`            | Assign a container name                           |
+| `-p host:container` | Map a host port to a container port               |
+| `3000:5173`         | Map local port 3000 to container port 5173        |
+| `3001:80`           | Map local port 3001 to container port 80          |
 
 #### Container and Image Management
 

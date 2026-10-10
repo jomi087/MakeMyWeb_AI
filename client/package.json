@@ -6,17 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-
     "preview": "vite preview",
-
     "docker:dev:build": "docker build -t myw-client-dev -f Dockerfile.dev .",
     "docker:dev:run": "docker run --rm -it --name myw-client-dev-container -p 3000:5173 myw-client-dev",
-    
     "docker:prod:build": "docker build -t myw-client -f Dockerfile .",
     "docker:prod:run": "docker run -d --name myw-client-container -p 3001:80 myw-client"
   },
