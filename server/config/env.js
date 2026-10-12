@@ -14,20 +14,25 @@ dotenv.config({
 
 const baseSchema = z.object({
   PORT: z.coerce.number(),
-  FRONTEND_URL: z.url({ error: ERROR_MESSAGES.MISSING_FRONTEND_URL, }),
-  ALLOWED_ORIGINS: z.string().min(1, { error: ERROR_MESSAGES.ALLOWED_ORIGINS })
-    .refine((value) => value.split(',')
-      .map((origin) => origin.trim())
-      .every((origin) => {
-        try {
-          new URL(origin);
-          return true;
-        } catch {
-          return false;
-        }
-      }),
-      { error: ERROR_MESSAGES.ALLOWED_ORIGINS },
-  ), 
+  FRONTEND_URL: z.url({ error: ERROR_MESSAGES.MISSING_FRONTEND_URL }),
+  ALLOWED_ORIGINS: z
+    .string()
+    .min(1, { error: ERROR_MESSAGES.ALLOWED_ORIGINS })
+    .refine(
+      (value) =>
+        value
+          .split(',')
+          .map((origin) => origin.trim())
+          .every((origin) => {
+            try {
+              new URL(origin);
+              return true;
+            } catch {
+              return false;
+            }
+          }),
+      { error: ERROR_MESSAGES.ALLOWED_ORIGINS }
+    ),
   DB_URI: z.string().min(1, ERROR_MESSAGES.MISSING_DB_URI),
 });
 

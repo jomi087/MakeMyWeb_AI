@@ -2,7 +2,6 @@ export const SUCCESS_MESSAGES = {
   SERVER_RUNNING: 'Server is running',
   DB_CONNECTED: 'Database Connected Succeefully',
 
-
   SUCCESS: 'Success-full',
 };
 
