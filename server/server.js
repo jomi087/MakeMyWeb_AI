@@ -2,14 +2,16 @@ import { env } from './config/env.js';
 
 import { app } from './app.js';
 import { logger } from './config/logger.js';
+import { connectDB } from './config/db.js';
 
 const startServer = async () => {
   try {
+    connectDB()
     app.listen(env.PORT, () => {
       logger.info(
         `Server running on port ${env.PORT}\n` +
-          `Local:   http://localhost:${env.PORT}\n` +
-          `Health:  http://localhost:${env.PORT}/health`
+        `Local:   http://localhost:${env.PORT}\n` +
+        `Health:  http://localhost:${env.PORT}/health`
       );
     });
   } catch (err) {
