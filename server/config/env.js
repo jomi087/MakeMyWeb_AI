@@ -34,6 +34,7 @@ const baseSchema = z.object({
       { error: ERROR_MESSAGES.ALLOWED_ORIGINS }
     ),
   DB_URI: z.string().min(1, ERROR_MESSAGES.MISSING_DB_URI),
+  JWT_SECRET: z.string().min(1, ERROR_MESSAGES.MISSING_JWT_SECRET),
 });
 
 // Extend the base schema when an environment requires additional
