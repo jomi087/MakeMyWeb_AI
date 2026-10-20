@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
+import { router } from './routes/index.js';
 import { corsOptions } from './config/cors.js';
 import { HTTP_STATUS } from './constants/http.constants.js';
 import { SUCCESS_MESSAGES } from './constants/messages.constants.js';
@@ -20,6 +21,8 @@ app.use(
   express.urlencoded({ extended: true, limit: SERVER_CONFIG.URLENCODED_LIMIT })
 );
 app.use(cookieParser());
+
+app.use('/api/v1/', router);
 
 app.get('/health', (req, res) => {
   sendSuccess(res, HTTP_STATUS.OK, SUCCESS_MESSAGES.SERVER_RUNNING);

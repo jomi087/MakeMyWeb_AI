@@ -10,9 +10,6 @@ logs
 !.env.example
 
 #---------------------Backend--------------------------------
-server/constants/auth.constants.js
-server/middleware/validateRequest.js
-server/middleware/authenticate.js
 server/middleware/authorize.js
 server/middleware/parseJsonFields.js
 server/middleware/upload.js
