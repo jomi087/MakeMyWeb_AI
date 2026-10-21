@@ -3,12 +3,11 @@ import { z } from 'zod';
 import { ERROR_MESSAGES } from '../constants/messages.constants.js';
 
 const nodeEnvSchema = z.enum(['development', 'production']);
-const nodeEnv = nodeEnvSchema.parse(process.env.NODE_ENV); //parse will throw error if node_env failes whilre comparing with nodeEnvSchema
-console.log('nodeEnv', nodeEnv);
+const nodeEnv = nodeEnvSchema.parse(process.env.NODE_ENV); //parse will throw error if node_env fail while comparing with nodeEnvSchema
 
 dotenv.config({
   path: `.env.${nodeEnv}`,
-  // quiet: true, //supresss it if you dont was to dislay in terminal
+  // quiet: true, //suppress it if you don't was to display in terminal
   // debug: true // for debugging
 });
 
@@ -35,6 +34,16 @@ const baseSchema = z.object({
     ),
   DB_URI: z.string().min(1, ERROR_MESSAGES.MISSING_DB_URI),
   JWT_SECRET: z.string().min(1, ERROR_MESSAGES.MISSING_JWT_SECRET),
+  OPENROUTER_API_KEY: z
+    .string()
+    .min(1, ERROR_MESSAGES.MISSING_OPENROUTER_API_KEY),
+  OPENROUTER_MODEL: z.string().min(1, ERROR_MESSAGES.MISSING_OPENROUTER_MODEL),
+  AI_MAX_CONCURRENCY: z
+    .string()
+    .min(1, ERROR_MESSAGES.MISSING_AI_MAX_CONCURRENCY),
+  OPENROUTER_BASE_URL: z
+    .string()
+    .min(1, ERROR_MESSAGES.MISSING_OPENROUTER_API_KEY),
 });
 
 // Extend the base schema when an environment requires additional

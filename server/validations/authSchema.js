@@ -7,7 +7,7 @@ import {
   PASSWORD_REGEX,
 } from '../constants/auth.constants.js';
 
-export const signinSchema = z.object({
+export const loginSchema = z.object({
   email: z.string().trim().min(1, 'Email is required').email('Invalid email'),
 
   password: z
@@ -27,7 +27,7 @@ export const signinSchema = z.object({
     ),
 });
 
-export const signupSchema = signinSchema.extend({
+export const registerSchema = loginSchema.extend({
   name: z
     .string()
     .trim()
