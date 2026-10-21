@@ -23,7 +23,7 @@ export class AuthController {
   }
 
   register = async (req, res) => {
-    let { name, email, password } = req.body;
+    let { name, email, password } = req.validatedBody;
     email = email.toLowerCase(); // Convert email to lowercase
 
     const { userInfo, token } = await this.authService.register(
@@ -39,7 +39,7 @@ export class AuthController {
   };
 
   login = async (req, res) => {
-    let { email, password } = req.body;
+    let { email, password } = req.validatedBody;
     email = email.toLowerCase(); // Convert email to lowercase
 
     const { token, userInfo } = await this.authService.login(email, password);
